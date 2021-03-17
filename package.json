@@ -1,0 +1,24 @@
+{
+  "name": "met-office",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TanyaJRB/MET-Office-JS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TanyaJRB/MET-Office-JS/issues"
+  },
+  "homepage": "https://github.com/TanyaJRB/MET-Office-JS#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "got": "^11.8.2",
+    "readline-sync": "^1.4.10"
+  }
+}
