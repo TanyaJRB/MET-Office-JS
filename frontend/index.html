@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather forecast</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="forecast.js"></script>
+  </head>
+
+  <body>
+    <h1>MET Office Weather Forecast</h1>
+
+    <!-- <form action="javascript:void(0)" onsubmit="getLocationsByletter(this);">
+        <h1>To get started, browse our locations by letter.</h1>
+        <h2>Type a letter to see locations beginning with that letter: </h2>
+        <input type="text" name="letter">
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="displayLocations">
+        <h2>Any luck? Click YES if you found the location you were looking for, or NO if you would like to see the next 20 locations.</h2>
+        <button type="submit" onsubmit="">YES</button>
+        <button type="submit" onsubmit="displayNext20(20,41);">NO</button>
+
+        <h3>Please see below for a list of 20 possible locations:</h3>
+        <ul id="locationsList">
+            <li id="locationsListItem"></li>
+        </ul>
+        </div>
+    </div> -->
+
+    <div id="getLocId">
+        <form action="javascript:void(0)" onsubmit="onSubmitGetForecast(this);">
+            <h1>Please type the name of the location you have chosen: </h1>
+            <input type="text" name="location">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div id="weatherForecast">
+        <h2 id="locName"></h2>
+
+        <h3 id="day1"></h3>
+        <strong id="Dtype"></strong>
+        <ul>
+            <li id="dayTemp"></li>
+            <li id="flDayTemp"></li>
+        </ul>
+
+        <h3 id="night1"></h3>
+        <strong id="Ntype"></strong>
+        <ul>
+            <li id="nightTemp"></li>
+            <li id="flNightTemp"></li>
+        </ul>
+
+    </div>
+
+  </body>
+
+</html>

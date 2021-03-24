@@ -4,7 +4,7 @@ var options = {
   responseType: 'json'
 };
 
-//SAVE INITIAL MET OFFICE LINKS IN TO VARIABLES 
+//SAVE INITIAL MET OFFICE LINKS IN TO VARIABLES
 
 const baseUrl = "http://datapoint.metoffice.gov.uk/public/data/";
 const apiKey = "ecce5697-a2e1-4515-b819-61d664569ec9";
@@ -21,12 +21,12 @@ async function getSiteListData() {
     const responseBody = response.data;
 
     //Saving the location names and their location IDs in to an object
-    let locationz = {}; 
+    let locationz = {};
 
       for (let i=0; i<responseBody.Locations.Location.length; i++){
         locationz[responseBody.Locations.Location[i].name] = responseBody.Locations.Location[i].id;
-      } 
-    
+      }
+
     return locationz;
 
   }
@@ -39,33 +39,34 @@ async function getSiteListData() {
 async function getWeatherForecast(locId, timeIncrement) {
   try{
 
-    let weatherForecastLocLink = `val/wxfcs/all/json/${locId}?res=${timeIncrement}&key=`; 
-    console.log(weatherForecastLocLink);
+    let weatherForecastLocLink = `val/wxfcs/all/json/${locId}?res=${timeIncrement}&key=`;
 
     const weather = await axios.get((baseUrl + weatherForecastLocLink + apiKey));
     const weatherForecast = weather.data;
 
-    console.log(" ");
-    console.log(`${weatherForecast.SiteRep.DV.Location.name} Weather Forecast`)
+    // console.log(" ");
+    // console.log(`${weatherForecast.SiteRep.DV.Location.name} Weather Forecast`)
 
-    let day = weatherForecast.SiteRep.DV.Location.Period;
+    // let day = weatherForecast.SiteRep.DV.Location.Period;
 
-    day.forEach((period)=>{
-      console.log(" ");
-      console.log("Forecast Date: " + period.value.slice(0,10));
-      
-      console.log(" ");
+    // day.forEach((period)=>{
+    //   console.log(" ");
+    //   console.log("Forecast Date: " + period.value.slice(0,10));
 
-      console.log("Forecast Type: " + period.Rep[0].$);
-      console.log("Temperature: " + period.Rep[0].Dm);
-      console.log("Feels Like Temperature: " + period.Rep[0].FDm);
+    //   console.log(" ");
 
-      console.log(" ");
+    //   console.log("Forecast Type: " + period.Rep[0].$);
+    //   console.log("Temperature: " + period.Rep[0].Dm);
+    //   console.log("Feels Like Temperature: " + period.Rep[0].FDm);
 
-      console.log("Forecast Type: " + period.Rep[1].$);
-      console.log("Temperature: " + period.Rep[1].Nm);
-      console.log("Feels Like Temperature: " + period.Rep[1].FNm);
-    })
+    //   console.log(" ");
+
+    //   console.log("Forecast Type: " + period.Rep[1].$);
+    //   console.log("Temperature: " + period.Rep[1].Nm);
+    //   console.log("Feels Like Temperature: " + period.Rep[1].FNm);
+    //})
+
+    return weatherForecast;
   }
   catch (error){
     console.log(error);
